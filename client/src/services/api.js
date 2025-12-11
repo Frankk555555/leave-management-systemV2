@@ -1,0 +1,99 @@
+import axios from "axios";
+
+const API_URL = "http://localhost:5000/api";
+
+const api = axios.create({
+  baseURL: API_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+// Add token to requests
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+// Auth API
+export const authAPI = {
+  register: (data) => api.post("/auth/register", data),
+  login: (data) => api.post("/auth/login", data),
+  getMe: () => api.get("/auth/me"),
+};
+
+// Users API
+export const usersAPI = {
+  getAll: () => api.get("/users"),
+  getById: (id) => api.get(`/users/${id}`),
+  create: (data) => api.post("/users", data),
+  update: (id, data) => api.put(`/users/${id}`, data),
+  delete: (id) => api.delete(`/users/${id}`),
+  getSupervisors: () => api.get("/users/supervisors"),
+};
+
+// Leave Requests API
+export const leaveRequestsAPI = {
+  create: (formData) =>
+    api.post("/leave-requests", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    }),
+  getMyRequests: () => api.get("/leave-requests"),
+  getAll: () => api.get("/leave-requests/all"),
+  getPending: () => api.get("/leave-requests/pending"),
+  getById: (id) => api.get(`/leave-requests/${id}`),
+  approve: (id, note) => api.put(`/leave-requests/${id}/approve`, { note }),
+  reject: (id, note) => api.put(`/leave-requests/${id}/reject`, { note }),
+  cancel: (id) => api.put(`/leave-requests/${id}/cancel`),
+  update: (id, data) => api.put(`/leave-requests/${id}`, data),
+  getTeam: () => api.get("/leave-requests/team"),
+};
+
+// Leave Types API
+export const leaveTypesAPI = {
+  getAll: () => api.get("/leave-types"),
+  create: (data) => api.post("/leave-types", data),
+  update: (id, data) => api.put(`/leave-types/${id}`, data),
+  delete: (id) => api.delete(`/leave-types/${id}`),
+  initialize: () => api.post("/leave-types/init"),
+};
+
+// Holidays API
+export const holidaysAPI = {
+  getAll: (year) => api.get("/holidays", { params: { year } }),
+  create: (data) => api.post("/holidays", data),
+  update: (id, data) => api.put(`/holidays/${id}`, data),
+  delete: (id) => api.delete(`/holidays/${id}`),
+  initialize: () => api.post("/holidays/init"),
+};
+
+// Notifications API
+export const notificationsAPI = {
+  getAll: () => api.get("/notifications"),
+  getUnreadCount: () => api.get("/notifications/unread-count"),
+  markAsRead: (id) => api.put(`/notifications/${id}/read`),
+  markAllAsRead: () => api.put("/notifications/read-all"),
+  delete: (id) => api.delete(`/notifications/${id}`),
+};
+
+// Reports API
+export const reportsAPI = {
+  getStatistics: (year) => api.get("/reports/statistics", { params: { year } }),
+  exportExcel: (year, month) =>
+    api.get("/reports/export/excel", {
+      params: { year, month },
+      responseType: "blob",
+    }),
+  exportPDF: (year, month) =>
+    api.get("/reports/export/pdf", {
+      params: { year, month },
+      responseType: "blob",
+    }),
+  resetYearly: () => api.post("/reports/reset-yearly"),
+  getAllRequests: (params) => api.get("/reports/all-requests", { params }),
+};
+
+export default api;

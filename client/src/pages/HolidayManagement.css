@@ -1,0 +1,148 @@
+.holiday-management-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.init-btn {
+  background: #e2e8f0;
+  color: #4a5568;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.init-btn:hover {
+  background: #cbd5e0;
+}
+
+.holidays-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1rem;
+}
+
+.holiday-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.holiday-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.holiday-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  min-width: 60px;
+}
+
+.date-day {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.holiday-info {
+  flex: 1;
+}
+
+.holiday-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #2d3748;
+}
+
+.holiday-info p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.holiday-desc {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  font-style: italic;
+}
+
+.holiday-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.holiday-actions .edit-btn,
+.holiday-actions .delete-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.holiday-actions .edit-btn {
+  background: #e2e8f0;
+}
+
+.holiday-actions .edit-btn:hover {
+  background: #667eea;
+}
+
+.holiday-actions .delete-btn {
+  background: #fee2e2;
+}
+
+.holiday-actions .delete-btn:hover {
+  background: #ff6b6b;
+}
+
+.holiday-management-page .modal-content .form-group {
+  margin-bottom: 1rem;
+}
+
+.holiday-management-page .modal-content .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.holiday-management-page .modal-content .form-group input {
+  width: 100%;
+  padding: 0.875rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+.holiday-management-page .modal-content .form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+}

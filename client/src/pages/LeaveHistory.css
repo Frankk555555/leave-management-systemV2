@@ -1,0 +1,272 @@
+.leave-history-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.page-header h1 {
+  font-size: 1.75rem;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-header p {
+  color: #6c757d;
+  margin: 0.5rem 0 0 0;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-tabs button {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e2e8f0;
+  background: white;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #4a5568;
+}
+
+.filter-tabs button:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.filter-tabs button.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-color: transparent;
+  color: white;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.empty-icon {
+  font-size: 4rem;
+}
+
+.empty-state h3 {
+  margin: 1rem 0 0.5rem 0;
+  color: #2d3748;
+}
+
+.empty-state p {
+  color: #a0aec0;
+  margin: 0;
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.history-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.history-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: #f7fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.leave-type-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.type-icon {
+  font-size: 1.25rem;
+}
+
+.type-name {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.status-badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.date-range-display {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.date-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-label {
+  font-size: 0.75rem;
+  color: #a0aec0;
+}
+
+.date-value {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.date-arrow {
+  color: #a0aec0;
+}
+
+.days-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.reason-section {
+  margin-bottom: 1rem;
+}
+
+.reason-label {
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+.reason-text {
+  margin: 0.25rem 0 0 0;
+  color: #4a5568;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.attachments-section {
+  padding: 0.5rem 0;
+}
+
+.attachments-label {
+  font-size: 0.85rem;
+  color: #667eea;
+}
+
+.approval-note {
+  background: #f7fafc;
+  padding: 0.75rem;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}
+
+.note-label {
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+.note-text {
+  margin: 0.25rem 0 0 0;
+  color: #4a5568;
+  font-size: 0.85rem;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: #f7fafc;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.8rem;
+  color: #a0aec0;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.approver {
+  color: #667eea;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-buttons .edit-btn,
+.action-buttons .cancel-btn {
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-buttons .edit-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.action-buttons .edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.action-buttons .cancel-btn {
+  background: linear-gradient(135deg, #f56565, #e53e3e);
+  color: white;
+}
+
+.action-buttons .cancel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 101, 101, 0.4);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+

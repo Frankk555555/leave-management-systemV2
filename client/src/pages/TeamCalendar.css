@@ -1,0 +1,280 @@
+.team-calendar-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.calendar-container {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .calendar-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calendar-wrapper {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.calendar-wrapper .react-calendar {
+  border: none;
+  width: 100%;
+  font-family: inherit;
+}
+
+.calendar-wrapper .react-calendar__tile {
+  position: relative;
+  padding: 1.5em 0.5em;
+}
+
+.calendar-wrapper .react-calendar__tile--active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 10px;
+}
+
+.calendar-wrapper .react-calendar__tile:hover {
+  background: #f0f4ff;
+  border-radius: 10px;
+}
+
+.calendar-wrapper .react-calendar__tile--active:hover {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+}
+
+.holiday-tile {
+  background: linear-gradient(135deg, #fef3c7, #fde68a) !important;
+  border-radius: 10px;
+}
+
+.team-leave-tile {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe) !important;
+  border-radius: 10px;
+}
+
+.tile-badge {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tile-badge span {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.calendar-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.selected-date-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.selected-date-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.event-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+}
+
+.holiday-event {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+}
+
+.event-icon {
+  font-size: 1.5rem;
+}
+
+.event-info h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #2d3748;
+}
+
+.event-info p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.team-leaves-list {
+  margin-top: 1rem;
+}
+
+.team-leaves-list h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.team-member-leave {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #f7fafc;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.member-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.member-name {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 0.9rem;
+}
+
+.leave-type {
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+.no-events {
+  color: #a0aec0;
+  text-align: center;
+  padding: 1rem;
+}
+
+.legend-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.legend-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: #4a5568;
+}
+
+.legend-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.legend-dot.holiday {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+}
+
+.legend-dot.team-leave {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+}
+
+.upcoming-leaves-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.upcoming-leaves-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.upcoming-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.upcoming-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #f7fafc;
+  border-radius: 12px;
+}
+
+.upcoming-date {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 50px;
+}
+
+.upcoming-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.upcoming-name {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 0.85rem;
+}
+
+.upcoming-type {
+  font-size: 0.75rem;
+  color: #718096;
+}
+
+.no-upcoming {
+  color: #a0aec0;
+  text-align: center;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,111 @@
+import { createContext, useContext, useState, useEffect } from "react";
+import { authAPI } from "../services/api";
+import React from "react";
+
+const AuthContext = createContext();
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
+  const checkAuth = async () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const response = await authAPI.getMe();
+        setUser(response.data);
+      } catch (error) {
+        console.error("Auth check failed:", error);
+        localStorage.removeItem("token");
+      }
+    }
+    setLoading(false);
+  };
+
+  const login = async (email, password) => {
+    const response = await authAPI.login({ email, password });
+    const { token, ...userData } = response.data;
+    localStorage.setItem("token", token);
+    setUser(userData);
+    return userData;
+  };
+
+  const register = async (data) => {
+    const response = await authAPI.register(data);
+    const { token, ...userData } = response.data;
+    localStorage.setItem("token", token);
+    setUser(userData);
+    return userData;
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
+
+  const updateUser = (userData) => {
+    setUser((prev) => ({ ...prev, ...userData }));
+  };
+
+  const value = {
+    user,
+    loading,
+    login,
+    register,
+    logout,
+    updateUser,
+    isAuthenticated: !!user,
+    isAdmin: user?.role === "admin",
+    isSupervisor: user?.role === "supervisor" || user?.role === "admin",
+  };
+
+  if (loading) {
+    return (
+      <div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        }}
+      >
+        <div
+          style={{
+            width: "60px",
+            height: "60px",
+            border: "4px solid rgba(255,255,255,0.3)",
+            borderTopColor: "white",
+            borderRadius: "50%",
+            animation: "spin 1s linear infinite",
+          }}
+        ></div>
+        <p style={{ color: "white", marginTop: "1rem", fontSize: "1.1rem" }}>
+          กำลังโหลด...
+        </p>
+        <style>{`
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
+      </div>
+    );
+  }
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+};
+
+export default AuthContext;
